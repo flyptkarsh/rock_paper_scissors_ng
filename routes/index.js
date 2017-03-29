@@ -35,8 +35,6 @@ router.post("/match", function(req, res, next){
   }, latency)
 })
 
-
-
 function playGame(me, you) {
   if (me === you) { return "tie"; }
 

@@ -4,15 +4,83 @@
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="/scripts/game.js" charset="utf-8"></script>
   </head>
-  <body>
-    <h1>Rock Paper Scissors!</h1>
-
-
-
-
-
-
-
+  <body ng-app="Game">
+    <div class="container" ng-controller="gameController" >
+      <h1 class="text-center">Rock Paper Scissors</h1>
+      <div class="col-xs-4">
+        <h3 class="text-center">Score</h3>
+        <ul>
+          <li class="list-group-item">
+            You
+            <span class="badge">{{humanScore}}</span>
+          </li>
+          <li class="list-group-item">
+            Computer
+            <span class="badge">{{computerScore}}</span>
+          </li>
+          <li class="list-group-item">
+            Ties
+            <span class="badge">{{ties}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-8">
+        <div class="panel panel-default" ng-show="showGame">
+          <h2 class="text-center">Choose one</h2>
+          <div class="panel-body">
+            <div class="col-xs-4 btn" ng-click="setChoice('paper')">
+              <img src="images/Paper-50.png" alt="Paper">
+              <br>
+              Paper
+            </div>
+            <div class="col-xs-4 btn" ng-click="setChoice('rock')">
+              <img src="images/Rock-50.png" alt="Rock">
+              <br>
+              Rock
+            </div>
+            <div class="col-xs-4 btn" ng-click="setChoice('scissors')">
+              <img src="images/Scissors-50.png" alt="Scissors" >
+              <br>
+              Scissors
+            </div>
+          </div>
+          <div class="panel-footer" ng-show="choice">
+            <div class="btn btn-default btn-block" ng-click="play(choice)">
+              <img ng-src="images/{{choice}}-50.png" alt="computerChoice"/>
+              <img src="images/Play-50.png" alt="Play">
+              <br>
+              Play {{choice}}
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default" ng-show="showResults">
+          <div class="panel-body">
+            <div class="col-xs-12">
+              <h1 ng-class="result" class="text-center">{{result}}</h1>
+            </div>
+            <div class="col-xs-6 text-center">
+              <img ng-src="images/{{computerChoice}}-50.png" alt="computerChoice"/>
+              <br>
+              Computer chose {{computerChoice}}
+            </div>
+            <div class="col-xs-6 text-center">
+              <img ng-src="images/{{playerChoice}}-50.png" alt="computerChoice"/>
+              <br>
+              You chose {{playerChoice}}
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="btn btn-default btn-block"  ng-click="playAgain()">
+              <img src="images/Play-50.png" alt="Play">
+              <br>
+              Play Again
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
