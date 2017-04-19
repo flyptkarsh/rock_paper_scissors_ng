@@ -23,21 +23,3 @@ You can test the API using cURL thusly:
 ## The GUI
 
 All front end assets can be found in the `public` directory. Please use a AngularJS to build a single page application for playing the game. You may structure your Angular app as you like and you may add to or modify any of the code in here. Visually, the design does not have to be perfect, but the game should look presentable.
-
-#### Requirements
-
-* All requests to the server should be asynchronous. That is, there should never be a full page refresh.
-
-* Play button should be disabled (with an appropriate graphical cue) until the player makes a choice.
-
-* Player should see an indication of their choice before clicking the Play button
-
-* Clicking the play button should submit the user's choice to the server, and the response should update the GUI with the computer's choice and the result of the game.
-
-* "Computer Choice", "Result", and "Play Again" elements should be hidden until the response from the server is received and the game is over.
-
-* Wins should increment the player's score and losses should increment the computer's score. Scores should not change for a tie.
-
-* Your application should demonstrate a solid understanding of MVC and event-driven design patterns.
-
-* Your application should deal with server errors gracefully.
